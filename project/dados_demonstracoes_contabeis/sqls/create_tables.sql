@@ -48,3 +48,15 @@ CREATE TABLE intuitivecare.health_insurance_providers (
     data_registro_ans date NULL,
     CONSTRAINT health_insurance_providers_pkey PRIMARY KEY (registro_ans)
 );
+
+CREATE TABLE address (
+    code SERIAL PRIMARY KEY,
+    road VARCHAR(255),
+    "number" VARCHAR(20),
+    complement VARCHAR(100),
+    neighborhood VARCHAR(100),
+    city VARCHAR(100),
+    state VARCHAR(2),
+    zip_code VARCHAR(20),
+    ans_registration VARCHAR(255) unique
+);
