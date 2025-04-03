@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  scraping-postgres:
+    image: postgres:15
+    container_name: scraping-postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+      - ./project/dados_demonstracoes_contabeis:/var/lib/dados_demonstracoes_contabeis
+    ports:
+      - "5422:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+
+  run-sql:
+    image: postgres:15
+    depends_on:
+      scraping-postgres:
+        condition: service_healthy
+    volumes:
+      - ./project/dados_demonstracoes_contabeis:/var/lib/dados_demonstracoes_contabeis
+    command: >
+      bash -c "
+      echo 'Executando create_tables.sql...' &&
+      psql -h scraping-postgres -U postgres -d postgres -f /var/lib/dados_demonstracoes_contabeis/sqls/create_tables.sql &&
+      echo 'Executando main_insert.sql...' &&
+      psql -h scraping-postgres -U postgres -d postgres -f /var/lib/dados_demonstracoes_contabeis/sqls/main_insert.sql &&
+      echo 'Executando relatorio_insert.sql...' &&
+      psql -h scraping-postgres -U postgres -d postgres -f /var/lib/dados_demonstracoes_contabeis/sqls/relatorio_insert.sql &&
+      echo 'Executando refatore.sql...' &&
+      psql -h scraping-postgres -U postgres -d postgres -f /var/lib/dados_demonstracoes_contabeis/sqls/refatore.sql
+      "
+    environment:
+      PGPASSWORD: postgres

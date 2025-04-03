@@ -1,0 +1,9 @@
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/relatorio_cadop/Relatorio_cadop.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2024/2T2024.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2024/1T2024.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2024/4T2024.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2024/3T2024.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2023/1T2023.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2023/4T2023.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2023/2t2023.csv' DELIMITER ';' CSV HEADER;
+SET SCHEMA 'intuitivecare';COPY financial_data (DATA, REG_ANS, CD_CONTA_CONTABIL, DESCRICAO, VL_SALDO_INICIAL, VL_SALDO_FINAL) FROM '/var/lib/dados_demonstracoes_contabeis/2023/3T2023.csv' DELIMITER ';' CSV HEADER;
